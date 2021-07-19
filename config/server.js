@@ -8,23 +8,24 @@ const dbCred =
 	dbUser.length > 0 || dbPass.length > 0 ? `${dbUser}:${dbPass}@` : '';
 
 const dbUrl =
-	process.env.DB_URL || `mongodb://${dbCred}${dbHost}:${dbPort}/${dbName}`;
+	process.env.DB_URL ||
+	`mongodb+srv://mongodbServer:mflixAppPwd@cluster0.plllr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 module.exports = {
 	// used by Store (server side)
-	apiBaseUrl: `http://localhost:3001/api/v1`,
+	apiBaseUrl: `https://popapi.herokuapp.com/api/v1`,
 
 	// used by Store (server and client side)
-	ajaxBaseUrl: `http://localhost:3001/ajax`,
+	ajaxBaseUrl: `https://popapi.herokuapp.com/ajax`,
 
 	// Access-Control-Allow-Origin
-	storeBaseUrl: `http://localhost:3000`,
+	storeBaseUrl: `http://localhost:${process.env.PORT}`,
 
 	// used by API
 	adminLoginUrl: '/admin/login',
 
-	apiListenPort: 3001,
-	storeListenPort: 3000,
+	//apiListenPort: 3001,
+	storeListenPort: process.env.PORT || 3000,
 
 	// used by API
 	mongodbServerUrl: dbUrl,
