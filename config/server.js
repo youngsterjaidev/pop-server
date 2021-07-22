@@ -19,7 +19,7 @@ module.exports = {
 	ajaxBaseUrl: `https://popapi.herokuapp.com/ajax`,
 
 	// Access-Control-Allow-Origin
-	storeBaseUrl: `http://localhost:${process.env.PORT}`,
+	storeBaseUrl: `*`,
 
 	// used by API
 	adminLoginUrl: '/admin/login',
